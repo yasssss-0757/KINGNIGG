@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+git remote add origin https://github.com/yasssss-0757/KINGNIGG.git
+git branch -M main
+git push -u origin main
+<title>KingNigg | Creator Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --gold:#ffb300;
+  --gold2:#ffd060;
+  --dark:#0a0a0d;
+  --card:#13131a;
+  --border:#222230;
+}
+
+body{
+  background:var(--dark);
+  color:#fff;
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── SFONDO ORIGINALE ── */
+
+.bg-canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+/* Griglia diagonale */
+
+.bg-canvas::before{
+  content:'';
+  position:absolute;
+  inset:-50%;
+  background-image:
+    linear-gradient(60deg, rgba(255,179,0,0.04) 1px, transparent 1px),
+    linear-gradient(-60deg, rgba(255,179,0,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  animation:gridDrift 20s linear infinite;
+}
+
+/* Glow ambientale */
+
+.bg-canvas::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(255,179,0,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 75%, rgba(255,100,0,0.09) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 50% 50%, rgba(255,179,0,0.04) 0%, transparent 80%);
+}
+
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  animation:orbFloat 8s ease-in-out infinite alternate;
+}
+
+.orb1{
+  width:420px;
+  height:420px;
+  background:radial-gradient(circle, rgba(255,179,0,0.18),transparent 70%);
+  top:-100px;
+  left:-80px;
+}
+
+.orb2{
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(255,80,0,0.12),transparent 70%);
+  bottom:-80px;
+  right:-60px;
+}
+
+.orb3{
+  width:200px;
+  height:200px;
+  background:radial-gradient(circle, rgba(255,200,0,0.1),transparent 70%);
+  top:50%;
+  right:10%;
+}
+
+/* Linee verticali */
+
+.bg-lines{
+  position:absolute;
+  inset:0;
+  background-image:repeating-linear-gradient(
+    90deg,
+    rgba(255,179,0,0.025) 0px,
+    rgba(255,179,0,0.025) 1px,
+    transparent 1px,
+    transparent 80px
+  );
+}
+
+/* Particelle */
+
+.particles{
+  position:absolute;
+  inset:0;
+}
+
+.p{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:var(--gold);
+  border-radius:50%;
+  opacity:0;
+  animation:particleFade 4s ease-in-out infinite;
+}
+
+.p:nth-child(1){left:10%;top:20%;animation-delay:0s}
+.p:nth-child(2){left:25%;top:60%;animation-delay:0.8s}
+.p:nth-child(3){left:40%;top:15%;animation-delay:1.6s}
+.p:nth-child(4){left:55%;top:75%;animation-delay:0.4s}
+.p:nth-child(5){left:70%;top:35%;animation-delay:2.2s}
+.p:nth-child(6){left:82%;top:55%;animation-delay:1.2s}
+.p:nth-child(7){left:90%;top:10%;animation-delay:3s}
+.p:nth-child(8){left:15%;top:85%;animation-delay:1.8s}
+.p:nth-child(9){left:60%;top:50%;animation-delay:0.6s}
+.p:nth-child(10){left:45%;top:90%;animation-delay:2.8s;width:3px;height:3px}
+.p:nth-child(11){left:78%;top:22%;animation-delay:3.4s}
+.p:nth-child(12){left:32%;top:42%;animation-delay:2s}
+
+/* Angoli */
+
+.corner{
+  position:absolute;
+  width:60px;
+  height:60px;
+}
+
+.corner-tl{
+  top:20px;
+  left:20px;
+  border-top:2px solid rgba(255,179,0,0.3);
+  border-left:2px solid rgba(255,179,0,0.3);
+}
+
+.corner-tr{
+  top:20px;
+  right:20px;
+  border-top:2px solid rgba(255,179,0,0.3);
+  border-right:2px solid rgba(255,179,0,0.3);
+}
+
+.corner-bl{
+  bottom:20px;
+  left:20px;
+  border-bottom:2px solid rgba(255,179,0,0.3);
+  border-left:2px solid rgba(255,179,0,0.3);
+}
+
+.corner-br{
+  bottom:20px;
+  right:20px;
+  border-bottom:2px solid rgba(255,179,0,0.3);
+  border-right:2px solid rgba(255,179,0,0.3);
+}
+
+@keyframes gridDrift{
+  to{
+    transform:translateY(60px);
+  }
+}
+
+@keyframes orbFloat{
+  0%{
+    transform:translate(0,0) scale(1);
+  }
+  100%{
+    transform:translate(20px,30px) scale(1.05);
+  }
+}
+
+@keyframes particleFade{
+  0%,100%{
+    opacity:0;
+    transform:translateY(0);
+  }
+  50%{
+    opacity:0.7;
+    transform:translateY(-12px);
+  }
+}
+
+/* LAYOUT */
+
+.container{
+  position:relative;
+  z-index:2;
+  width:min(540px,92%);
+  margin:auto;
+  padding:50px 0 80px;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+}
+
+.profile-wrap{
+  position:relative;
+  width:145px;
+  height:145px;
+  margin:auto;
+}
+
+.profile-ring{
+  position:absolute;
+  inset:-5px;
+  border-radius:50%;
+  background:linear-gradient(
+    135deg,
+    var(--gold),
+    #ff7b00,
+    var(--gold2)
+  );
+  filter:blur(1px);
+}
+
+.profile-img{
+  position:relative;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center top;
+  border:4px solid #0d0d0d;
+}
+
+h1{
+  margin-top:24px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;
+  line-height:1;
+  letter-spacing:4px;
+
+  background:linear-gradient(
+    135deg,
+    #ffffff,
+    var(--gold)
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.tag{
+  margin-top:10px;
+  color:var(--gold);
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:3px;
+}
+
+.bio{
+  margin-top:18px;
+  max-width:420px;
+  margin-inline:auto;
+  line-height:1.7;
+  color:#d2d2d2;
+  font-size:.95rem;
+}
+
+.bio b{
+  color:var(--gold);
+}
+
+/* BUTTON */
+
+.hero-buttons{
+  margin-top:32px;
+  display:flex;
+  justify-content:center;
+}
+
+.cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:16px 34px;
+
+  border-radius:999px;
+
+  text-decoration:none;
+
+  font-weight:700;
+  font-size:.9rem;
+  letter-spacing:1.4px;
+
+  transition:.25s;
+
+  background:linear-gradient(
+    135deg,
+    var(--gold),
+    #ff8c00
+  );
+
+  color:#000;
+
+  box-shadow:
+    0 10px 40px rgba(255,179,0,.18);
+}
+
+.cta:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 16px 50px rgba(255,179,0,.3);
+}
+
+/* SECTION */
+
+.section{
+  margin-top:50px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;
+  letter-spacing:3px;
+
+  color:var(--gold);
+}
+
+.section-title::before{
+  content:'';
+  width:4px;
+  height:22px;
+  border-radius:999px;
+  background:var(--gold);
+}
+
+/* SOCIALS */
+
+.socials{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.social{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:16px 18px;
+
+  border-radius:20px;
+
+  background:rgba(19,19,26,0.8);
+
+  border:1px solid var(--border);
+
+  text-decoration:none;
+  color:#fff;
+
+  transition:.25s;
+
+  backdrop-filter:blur(10px);
+}
+
+.social:hover{
+  transform:translateY(-2px);
+
+  border-color:rgba(255,179,0,.45);
+
+  background:rgba(25,25,35,0.9);
+}
+
+.social-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.social-left img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+}
+
+.social-name{
+  font-size:.95rem;
+  font-weight:600;
+}
+
+.social-arrow{
+  color:var(--gold);
+  font-size:1.2rem;
+}
+
+/* VIRAL SLIDER */
+
+.slider{
+  display:flex;
+  gap:16px;
+
+  overflow-x:auto;
+
+  scroll-snap-type:x mandatory;
+
+  padding-bottom:8px;
+}
+
+.slider::-webkit-scrollbar{
+  height:6px;
+}
+
+.slider::-webkit-scrollbar-thumb{
+  background:rgba(255,179,0,.35);
+  border-radius:999px;
+}
+
+.slide{
+  min-width:85%;
+  scroll-snap-align:center;
+}
+
+.video-card{
+  overflow:hidden;
+
+  border-radius:22px;
+
+  border:1px solid var(--border);
+
+  background:var(--card);
+}
+
+.video-card iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:none;
+  display:block;
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:70px;
+  text-align:center;
+}
+
+.footer p{
+  color:#666;
+  font-size:.8rem;
+  letter-spacing:2px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  h1{
+    font-size:3.2rem;
+  }
+
+  .slide{
+    min-width:92%;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- SFONDO -->
+
+<div class="bg-canvas">
+
+  <div class="bg-lines"></div>
+
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="particles">
+    <div class="p"></div><div class="p"></div><div class="p"></div>
+    <div class="p"></div><div class="p"></div><div class="p"></div>
+    <div class="p"></div><div class="p"></div><div class="p"></div>
+    <div class="p"></div><div class="p"></div><div class="p"></div>
+  </div>
+
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+</div>
+
+<div class="container">
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="profile-wrap">
+
+      <div class="profile-ring"></div>
+
+      <img
+        src="Foto_uff.JPG"
+        alt="KingNigg"
+        class="profile-img"
+      >
+
+    </div>
+
+    <h1>KingNigg</h1>
+
+    <div class="tag">
+      L'AHIUUU PIÙ FAMOSO
+    </div>
+
+    <p class="bio">
+      Contenuti nuovi che pochi creator portano
+      <b>STEADY.</b>
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        class="cta"
+        href="https://youtu.be/14v7x8A__50?si=6nf9o-1x_kbFc9Px"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GUARDA ORA
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- SOCIALS -->
+
+  <section class="section">
+
+    <div class="section-title">
+      SOCIALS
+    </div>
+
+    <div class="socials">
+
+      <a
+        class="social"
+        href="https://www.youtube.com/@renedanielss"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-left">
+
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+            alt="YouTube"
+          >
+
+          <span class="social-name">
+            YouTube
+          </span>
+
+        </div>
+
+        <span class="social-arrow">↗</span>
+
+      </a>
+
+      <a
+        class="social"
+        href="https://www.instagram.com/king.nigg/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-left">
+
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+            alt="Instagram"
+          >
+
+          <span class="social-name">
+            Instagram
+          </span>
+
+        </div>
+
+        <span class="social-arrow">↗</span>
+
+      </a>
+
+      <a
+        class="social"
+        href="https://www.tiktok.com/@renedanielss?_r=1&_t=ZN-96AcnZZyvat"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-left">
+
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/34/Ionicons_logo-tiktok.svg"
+            alt="TikTok"
+          >
+
+          <span class="social-name">
+            TikTok
+          </span>
+
+        </div>
+
+        <span class="social-arrow">↗</span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- VIRAL CLIPS -->
+
+  <section class="section">
+
+    <div class="section-title">
+      VIRAL CLIPS
+    </div>
+
+    <div class="slider">
+
+      <div class="slide">
+
+        <div class="video-card">
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dNtqQMIgcOA?si=HevbS-FRlcvkDiCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </div>
+
+      </div>
+
+      <div class="slide">
+
+        <div class="video-card">
+
+          <iframe
+            src="https://www.youtube.com/embed/bxB14vb5egI"
+            allowfullscreen
+          ></iframe>
+
+        </div>
+
+      </div>
+
+      <div class="slide">
+
+        <div class="video-card">
+
+          <iframe
+            src="https://www.youtube.com/embed/TYeTP4fO3OU"
+            allowfullscreen
+          ></iframe>
+
+        </div>
+
+      </div>
+
+      <div class="slide">
+
+        <div class="video-card">
+
+          <iframe
+            src="https://www.youtube.com/embed/MFOD5nhYl2U"
+            allowfullscreen
+          ></iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <p>
+      KINGNIGG © 2025
+    </p>
+
+  </footer>
+
+</div>
+
+</body>
+</html>

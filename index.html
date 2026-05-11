@@ -32,7 +32,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ── SFONDO ORIGINALE ── */
+/* ───────── SFONDO ───────── */
 
 .bg-canvas{
   position:fixed;
@@ -41,8 +41,6 @@ body{
   overflow:hidden;
   pointer-events:none;
 }
-
-/* Griglia diagonale */
 
 .bg-canvas::before{
   content:'';
@@ -54,8 +52,6 @@ body{
   background-size:60px 60px;
   animation:gridDrift 20s linear infinite;
 }
-
-/* Glow ambientale */
 
 .bg-canvas::after{
   content:'';
@@ -98,8 +94,6 @@ body{
   right:10%;
 }
 
-/* Linee verticali */
-
 .bg-lines{
   position:absolute;
   inset:0;
@@ -111,8 +105,6 @@ body{
     transparent 80px
   );
 }
-
-/* Particelle */
 
 .particles{
   position:absolute;
@@ -141,8 +133,6 @@ body{
 .p:nth-child(10){left:45%;top:90%;animation-delay:2.8s;width:3px;height:3px}
 .p:nth-child(11){left:78%;top:22%;animation-delay:3.4s}
 .p:nth-child(12){left:32%;top:42%;animation-delay:2s}
-
-/* Angoli */
 
 .corner{
   position:absolute;
@@ -204,7 +194,7 @@ body{
   }
 }
 
-/* LAYOUT */
+/* ───────── LAYOUT ───────── */
 
 .container{
   position:relative;
@@ -214,7 +204,7 @@ body{
   padding:50px 0 80px;
 }
 
-/* HERO */
+/* ───────── HERO ───────── */
 
 .hero{
   text-align:center;
@@ -288,8 +278,6 @@ h1{
   color:var(--gold);
 }
 
-/* BUTTON */
-
 .hero-buttons{
   margin-top:32px;
   display:flex;
@@ -300,17 +288,12 @@ h1{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-
   padding:16px 34px;
-
   border-radius:999px;
-
   text-decoration:none;
-
   font-weight:700;
   font-size:.9rem;
   letter-spacing:1.4px;
-
   transition:.25s;
 
   background:linear-gradient(
@@ -332,7 +315,7 @@ h1{
     0 16px 50px rgba(255,179,0,.3);
 }
 
-/* SECTION */
+/* ───────── SECTION ───────── */
 
 .section{
   margin-top:50px;
@@ -359,7 +342,7 @@ h1{
   background:var(--gold);
 }
 
-/* SOCIALS */
+/* ───────── SOCIALS ───────── */
 
 .socials{
   display:flex;
@@ -418,17 +401,21 @@ h1{
   font-size:1.2rem;
 }
 
-/* VIRAL SLIDER */
+/* ───────── VIDEO SLIDER ───────── */
 
 .slider{
   display:flex;
   gap:16px;
 
   overflow-x:auto;
+  overflow-y:hidden;
 
   scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
 
-  padding-bottom:8px;
+  padding-bottom:10px;
+
+  -webkit-overflow-scrolling:touch;
 }
 
 .slider::-webkit-scrollbar{
@@ -441,17 +428,14 @@ h1{
 }
 
 .slide{
-  min-width:85%;
+  flex:0 0 85%;
   scroll-snap-align:center;
 }
 
 .video-card{
   overflow:hidden;
-
   border-radius:22px;
-
   border:1px solid var(--border);
-
   background:var(--card);
 }
 
@@ -462,7 +446,7 @@ h1{
   display:block;
 }
 
-/* FOOTER */
+/* ───────── FOOTER ───────── */
 
 .footer{
   margin-top:70px;
@@ -475,7 +459,7 @@ h1{
   letter-spacing:2px;
 }
 
-/* MOBILE */
+/* ───────── MOBILE ───────── */
 
 @media(max-width:600px){
 
@@ -484,7 +468,7 @@ h1{
   }
 
   .slide{
-    min-width:92%;
+    flex:0 0 92%;
   }
 
 }
@@ -575,7 +559,6 @@ h1{
         class="social"
         href="https://www.youtube.com/@renedanielss"
         target="_blank"
-        rel="noopener noreferrer"
       >
 
         <div class="social-left">
@@ -599,7 +582,6 @@ h1{
         class="social"
         href="https://www.instagram.com/king.nigg/"
         target="_blank"
-        rel="noopener noreferrer"
       >
 
         <div class="social-left">
@@ -621,9 +603,8 @@ h1{
 
       <a
         class="social"
-        href="https://www.tiktok.com/@renedanielss?_r=1&_t=ZN-96AcnZZyvat"
+        href="https://www.tiktok.com/@renedanielss"
         target="_blank"
-        rel="noopener noreferrer"
       >
 
         <div class="social-left">
@@ -657,17 +638,20 @@ h1{
 
     <div class="slider">
 
+      <!-- VIDEO 1 -->
       <div class="slide">
+        <div class="video-card">
 
           <iframe
-            src="https://youtu.be/dNtqQMIgcOA?si=K7Kb0dMJT9hZMSeS"
+            src="https://www.youtube.com/embed/dNtqQMIgcOA"
             allowfullscreen
           ></iframe>
 
+        </div>
       </div>
-    </div>
-      <div class="slide">
 
+      <!-- VIDEO 2 -->
+      <div class="slide">
         <div class="video-card">
 
           <iframe
@@ -676,11 +660,10 @@ h1{
           ></iframe>
 
         </div>
-
       </div>
 
+      <!-- VIDEO 3 -->
       <div class="slide">
-
         <div class="video-card">
 
           <iframe
@@ -689,11 +672,10 @@ h1{
           ></iframe>
 
         </div>
-
       </div>
 
+      <!-- VIDEO 4 -->
       <div class="slide">
-
         <div class="video-card">
 
           <iframe
@@ -702,7 +684,6 @@ h1{
           ></iframe>
 
         </div>
-
       </div>
 
     </div>
